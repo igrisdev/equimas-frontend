@@ -7,8 +7,83 @@ import { RefreshCw, Search } from "lucide-react";
 import { createUrl } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 
+const RenderProductItem = ({
+  product,
+  pathname,
+}: {
+  product: any;
+  pathname: string;
+}) => {
+  const isActive = pathname?.includes(product.handle);
+  const itemClass = isActive ? "bg-green-300" : "hover:bg-blue-100";
+
+  return (
+    <li key={product.id} className={itemClass}>
+      <Link
+        href={`/product/${product.handle}`}
+        className="flex items-center gap-4"
+      >
+        <div className="size-25 overflow-hidden rounded-lg bg-black">
+          <img
+            src={product?.featuredImage?.url ?? "/not-found.png"}
+            alt="Logo"
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        <div className="text-sm">
+          <p className="font-medium">{product.title}</p>
+        </div>
+      </Link>
+    </li>
+  );
+};
+
+const RenderDropdown = ({
+  isView,
+  productsSearch,
+  searchAttempted,
+  loading,
+  pathname,
+}: {
+  isView: boolean;
+  productsSearch: any[];
+  searchAttempted: boolean;
+  loading: boolean;
+  pathname: string;
+}) => {
+  if (!isView) return null;
+  return (
+    <div className="flex flex-col gap-4">
+      <div>
+        <h3 className="text-gray-700">Productos</h3>
+        <hr className="mt-2 border-gray-400" />
+      </div>
+
+      <ul className="flex h-[73vh] w-full flex-col gap-2 overflow-y-auto text-black">
+        {loading ? (
+          <div className="text-center">Buscando...</div>
+        ) : productsSearch.length > 0 ? (
+          productsSearch.map((product: any) => (
+            <RenderProductItem
+              key={product.id}
+              product={product}
+              pathname={pathname}
+            />
+          ))
+        ) : searchAttempted ? (
+          <div className="text-center">No se encontraron resultados</div>
+        ) : (
+          <div className="text-center">Buscando...</div>
+        )}
+      </ul>
+    </div>
+  );
+};
+
 export const SearchProducts = () => {
   const router = useRouter();
+
   const {
     handleChange,
     loading,
@@ -20,18 +95,7 @@ export const SearchProducts = () => {
     search,
   } = useSearchProducts();
 
-  const wrapperRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    const onPointerDown = (e: PointerEvent) => {
-      if (!wrapperRef.current?.contains(e.target as Node)) {
-        setFocus(false);
-      }
-    };
-    window.addEventListener("pointerdown", onPointerDown);
-    return () => window.removeEventListener("pointerdown", onPointerDown);
-  }, [setFocus]);
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -48,72 +112,34 @@ export const SearchProducts = () => {
     router.push(createUrl("/search", newParams));
   }
 
-  const renderProductItem = (product: any) => {
-    const isActive = pathname?.includes(product.handle);
-    const itemClass = isActive ? "bg-green-300" : "hover:bg-blue-100";
-
-    return (
-      <li key={product.id} className={itemClass}>
-        <Link
-          href={`/product/${product.handle}`}
-          className="flex items-center gap-2 rounded-xs border border-gray-300 p-2"
-        >
-          <img
-            src={product?.featuredImage?.url ?? "/not-found.png"}
-            alt="Logo"
-            className="size-[50]"
-          />
-          <div className="text-sm">
-            <p className="font-medium">{product.title}</p>
-          </div>
-        </Link>
-      </li>
-    );
-  };
-
-  const renderDropdown = () => {
-    if (!isView) return null;
-    return (
-      <ul className="absolute top-[121%] z-10 flex max-h-90 w-full flex-col gap-2 overflow-y-auto rounded-sm bg-blue-50 p-2 text-black shadow-lg sm:top-[100%]">
-        {loading ? (
-          <div className="bg-blue-200 p-2 text-center">Buscando...</div>
-        ) : productsSearch.length > 0 ? (
-          productsSearch.map(renderProductItem)
-        ) : searchAttempted ? (
-          <div className="bg-blue-200 p-2 text-center">
-            No se encontraron resultados
-          </div>
-        ) : (
-          <div className="bg-blue-200 p-2 text-center">Buscando...</div>
-        )}
-      </ul>
-    );
-  };
-
   return (
-    <section className="relative" ref={wrapperRef}>
-      <div className="group">
-        <form onSubmit={onSubmit} className="relative flex w-full items-center">
-          <input
-            ref={inputRef}
-            type="text"
-            name="q"
-            placeholder="Buscar productos..."
-            autoComplete="off"
-            value={search}
-            onChange={handleChange}
-            onFocus={() => setFocus(true)}
-            className="w-full rounded-full border border-gray-400 px-4 py-2 focus:border-blue-50"
-          />
-          {loading ? (
-            <RefreshCw className="absolute right-4 animate-spin" />
-          ) : (
-            <Search className="absolute right-4" />
-          )}
-        </form>
+    <section className="relative flex h-full w-full flex-col gap-8">
+      <form onSubmit={onSubmit} className="relative flex w-full items-center">
+        <input
+          ref={inputRef}
+          type="text"
+          name="q"
+          placeholder="Buscar productos..."
+          autoComplete="off"
+          value={search}
+          onChange={handleChange}
+          onFocus={() => setFocus(true)}
+          className="w-full rounded-lg border border-gray-400 bg-gray-100 px-4 py-4 outline-0 focus:border-blue-500"
+        />
+        {loading ? (
+          <RefreshCw className="absolute right-4 animate-spin" />
+        ) : (
+          <Search className="absolute right-4" />
+        )}
+      </form>
 
-        {renderDropdown()}
-      </div>
+      <RenderDropdown
+        productsSearch={productsSearch}
+        searchAttempted={searchAttempted}
+        loading={loading}
+        isView={isView}
+        pathname={pathname}
+      />
     </section>
   );
 };

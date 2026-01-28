@@ -38,7 +38,7 @@ export default function SearchModal() {
             leaveFrom="translate-x-0"
             leaveTo="translate-x-full"
           >
-            <Dialog.Panel className="fixed top-0 right-0 bottom-0 flex h-full w-full flex-col rounded-l-4xl border-l border-neutral-200 bg-white px-10 py-6 text-black md:w-[550px]">
+            <Dialog.Panel className="fixed top-0 right-0 bottom-0 flex h-full w-full flex-col rounded-l-4xl border-l border-neutral-200 bg-white px-5 py-6 text-black md:w-[550px]">
               <div className="flex items-center justify-between">
                 <p className="text-xl font-semibold uppercase">Buscador</p>
                 <button aria-label="Close cart" onClick={closeCart}>
@@ -46,8 +46,8 @@ export default function SearchModal() {
                 </button>
               </div>
 
-              <div className="pt-6">
-                <Suspense fallback={<div className="h-[42px] w-full"></div>}>
+              <div className="flex h-full w-full overflow-hidden pt-6 pb-4">
+                <Suspense fallback={null}>
                   <SearchProducts />
                 </Suspense>
               </div>
