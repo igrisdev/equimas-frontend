@@ -15,6 +15,7 @@ import { SearchProducts } from "./search-products";
 import { MAIN_MENU } from "@/lib/constants";
 import { IconChevronCompactDown } from "@tabler/icons-react";
 import { Menu } from "@/lib/shopify/types";
+import SearchModal from "@/components/search/modal";
 
 export const AnimationButtonAppears = ({
   children,
@@ -38,12 +39,6 @@ export const AnimationButtonAppears = ({
     </button>
   );
 };
-
-{
-  /* <Suspense fallback={<div className="h-[42px] w-full"></div>}>
-  <SearchProducts />
-</Suspense>; */
-}
 
 export const MenuDesktop = ({
   isOpenMenu,
@@ -197,8 +192,10 @@ export const Navbar = ({ menuResponse }: { menuResponse: Menu[] }) => {
             </Link>
           </section>
 
-          {/* Carrito */}
-          <section className="flex flex-nowrap items-center gap-6 pr-4">
+          {/* Buscador, Carrito */}
+          <section className="flex flex-nowrap items-center gap-10 pr-8">
+            <SearchModal />
+
             <CartModal />
           </section>
 
