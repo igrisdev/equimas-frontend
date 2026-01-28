@@ -12,7 +12,7 @@ export default function OpenCart({
     <div className="group relative flex cursor-pointer items-center justify-center">
       <ShoppingCartIcon
         className={clsx(
-          "h-10 transition-all ease-in-out group-hover:scale-110",
+          "h-7 transition-all ease-in-out group-hover:scale-110",
           className,
         )}
       />

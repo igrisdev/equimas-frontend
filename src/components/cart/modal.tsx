@@ -74,9 +74,9 @@ export default function CartModal() {
             leaveFrom="translate-x-0"
             leaveTo="translate-x-full"
           >
-            <Dialog.Panel className="fixed top-0 right-0 bottom-0 flex h-full w-full flex-col border-l border-neutral-200 bg-white/80 p-6 text-black backdrop-blur-xl md:w-[390px]">
+            <Dialog.Panel className="fixed top-0 right-0 bottom-0 flex h-full w-full flex-col border-l border-neutral-200 bg-white rounded-l-4xl px-10 py-6 text-black md:w-[550px]">
               <div className="flex items-center justify-between">
-                <p className="text-lg font-semibold">Carrito</p>
+                <p className="text-xl font-semibold uppercase">Carrito</p>
                 <button aria-label="Close cart" onClick={closeCart}>
                   <CloseCart />
                 </button>

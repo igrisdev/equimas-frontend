@@ -99,12 +99,12 @@ export default async function RootLayout({
   const cartId = cookieStore?.get("cartId")?.value;
   const cart = getCart(cartId);
 
-  const menuResponse = await getMenu(MAIN_MENU);
+  const menuResponse = (await getMenu(MAIN_MENU)).splice(3, 3);
 
   return (
     <html lang="es">
       <head>
-        <link rel="icon" href="/favicon.svg" />
+        <link rel="icon" href="/image.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
