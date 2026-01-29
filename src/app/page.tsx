@@ -5,6 +5,7 @@ import { Bonds } from "@/components/home/bonds";
 import { NewProducts } from "@/components/home/new-products/new-products";
 import { Categories } from "@/components/home/categories";
 import { Brands } from "@/components/home/brands/brands";
+import { Reviews } from "@/components/home/reviews/reviews";
 
 export const metadata: Metadata = {
   title:
@@ -46,6 +47,7 @@ export default async function Home() {
       <Categories />
       <Brands />
       <NewProducts />
+      <Reviews />
       <Bonds />
     </div>
   );
