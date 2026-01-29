@@ -1,83 +1,77 @@
 import { getHeroItems } from "@/lib/shopify";
-import {
-  CreditCard,
-  ShoppingBag,
-  Landmark,
-  BadgePercent,
-  PiggyBank,
-  Flame,
-} from "lucide-react";
+import { CreditCard, ShoppingBag } from "lucide-react";
 import Link from "next/link";
 import { CarouselHero } from "./carousel-hero";
 import { Suspense } from "react";
+
+import ImageAddi from "@/assets/logo/new_addi.png";
+import ImageBanco from "@/assets/logo/new_banco_de_bogota.png";
+import { IconBrandWhatsapp } from "@tabler/icons-react";
 
 export const Hero = async () => {
   const hero = await getHeroItems();
 
   return (
-    <section className="mx-auto grid h-full min-h-[calc(100vh-270px)] w-full max-w-7xl place-content-center overflow-hidden px-4 pt-4 sm:min-h-[calc(100vh-250px))]">
-      <div className="grid gap-8 lg:grid-cols-2">
-        <InfoHero />
+    <section className="max-w-8xl mx-auto flex h-[calc(100vh-140px))] w-full flex-col justify-evenly gap-8 overflow-hidden px-4 pt-4">
+      <Suspense fallback={<div></div>}>
+        <CarouselHero hero={hero} />
+      </Suspense>
 
-        <Suspense fallback={<div></div>}>
-          <CarouselHero hero={hero} />
-        </Suspense>
-      </div>
+      <InfoHero />
     </section>
   );
 };
 
 const InfoHero = () => {
   return (
-    <div className="order-2 flex flex-col justify-center gap-6 lg:order-1">
-      <span className="hidden w-fit rounded-full bg-blue-600/10 px-3 py-1 text-xs font-medium text-blue-700 lg:block">
-        Tienda #1 en Electrónica
-      </span>
-
-      <h1 className="hidden text-4xl leading-tight font-extrabold text-gray-900 md:text-5xl lg:block lg:text-7xl xl:text-8xl">
-        Jake Tienda Electrónica
+    <div className="flex items-center justify-between gap-4">
+      <h1 className="hidden flex-1 bg-gradient-to-r from-blue-500 to-orange-500 bg-clip-text text-4xl leading-tight font-extrabold text-transparent uppercase md:text-5xl lg:block lg:text-5xl xl:text-7xl">
+        ¡El Arte de Asar al Siguiente Nivel!
       </h1>
 
-      <section className="grid place-items-center gap-6 lg:place-items-start">
-        <p className="w-full max-w-xl text-sm text-gray-600 sm:text-center sm:text-base lg:text-left">
-          Audio profesional, controladoras DJ, subwoofers y tecnología.
-          <br />
-          Compra con financiación y envío a toda Colombia.
-        </p>
+      <section className="flex flex-1 flex-col gap-6 md:flex-row">
+        <div className="flex max-w-xl flex-col gap-6">
+          <p className="w-full text-sm text-white sm:text-base">
+            Barriles Ahumadores y equipos industriales diseñados para durar toda
+            la vida.
+            <span className="bg-gradient-to-r from-blue-500 to-orange-500 bg-clip-text leading-tight font-extrabold text-transparent">
+              {" "}
+              Eleva el nivel de tu negocio gastronómico hoy mismo.
+            </span>
+          </p>
 
-        <div className="flex flex-wrap gap-3 text-sm sm:text-base">
-          <Link
-            href="/search"
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-white shadow-sm transition hover:bg-blue-700 sm:w-max"
-          >
-            <ShoppingBag size={18} />
-            Explorar productos
-          </Link>
-          <Link
-            href="/credit"
-            className="flex w-full items-center justify-center gap-2 rounded-xl border border-gray-300 bg-amber-400 px-4 py-2 text-gray-800 hover:bg-amber-500 sm:w-max"
-          >
-            <CreditCard size={18} />
-            Opciones de financiación
-          </Link>
+          <div className="flex flex-wrap gap-3 text-sm sm:text-base">
+            <Link
+              href="/search"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-white shadow-sm transition hover:bg-blue-700 sm:w-max"
+            >
+              <ShoppingBag size={18} />
+              Explorar productos
+            </Link>
+            <Link
+              href="/credit"
+              className="flex w-full items-center justify-center gap-2 rounded-xl border border-green-500 bg-green-500 px-4 py-2 text-black hover:bg-green-400 sm:w-max"
+            >
+              <IconBrandWhatsapp />
+              Contáctenos
+            </Link>
+          </div>
         </div>
 
-        <ul className="mt-2 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-gray-600">
-          <li className="flex items-center gap-2">
-            <Landmark size={18} className="text-blue-600" />
-            Banco de Bogotá
+        <ul className="flex gap-4 md:flex-col [&>li]:h-20">
+          <li>
+            <img
+              src={ImageAddi.src}
+              alt=""
+              className="h-full w-full object-contain"
+            />
           </li>
-          <li className="flex items-center gap-2">
-            <BadgePercent size={18} className="text-blue-600" />
-            Addi
-          </li>
-          <li className="flex items-center gap-2">
-            <PiggyBank size={18} className="text-blue-600" />
-            Gora
-          </li>
-          <li className="flex items-center gap-2">
-            <Flame size={18} className="text-blue-600" />
-            Brilla
+          <li>
+            <img
+              src={ImageBanco.src}
+              alt=""
+              className="h-full w-full object-contain"
+            />
           </li>
         </ul>
       </section>
