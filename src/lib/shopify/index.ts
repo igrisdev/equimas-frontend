@@ -660,12 +660,14 @@ export async function getBestProductPoster() {
 
   const node = edges[0].node;
 
-  const fields = node.fields.reduce((acc, field) => {
+  const fields = node.fields.reduce((acc: any, field: any) => {
     acc[field.key] = field.reference ?? field.value;
     return acc;
   }, {});
 
   const product = fields.product;
+
+  const description = fields.descripcion;
 
   return {
     id: node.id,
@@ -674,7 +676,10 @@ export async function getBestProductPoster() {
           handle: product.handle,
           title: product.title,
           tags: product.tags,
-          image: product.featuredImage,
+          description: description,
+          images: product.images?.edges
+            ? product.images.edges.map((edge: any) => edge.node.url)
+            : [],
         }
       : null,
   };

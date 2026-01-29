@@ -12,7 +12,7 @@ import "@/styles/home/presentation.css";
 
 export const CarouselHero = ({ hero }: { hero: any[] }) => {
   return (
-    <div className="relative max-h-[500px] min-h-[500px] overflow-hidden rounded-2xl">
+    <div className="relative max-h-[500px] min-h-[500px] overflow-hidden rounded-2xl bg-white">
       <Swiper
         spaceBetween={0}
         pagination={{ clickable: true }}
@@ -22,15 +22,18 @@ export const CarouselHero = ({ hero }: { hero: any[] }) => {
         }}
         loop
         modules={[Autoplay, Pagination, Navigation]}
-        className="swiper swiper-slide"
+        className="swiper swiper-slide !h-[500px]"
       >
         {hero.map((p) => (
           <SwiperSlide key={p.id}>
-            <Link href={`/product/${p.handle}`} className="block h-full w-full">
+            <Link
+              href={`/product/${p.handle}`}
+              className="h-full w-full bg-red-400"
+            >
               <img
                 src={p?.image?.image?.url ?? "not-found.png"}
                 alt={p.id}
-                className="h-[600px] w-[1000px]"
+                className="h-full w-full object-cover"
               />
             </Link>
           </SwiperSlide>

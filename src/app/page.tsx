@@ -45,10 +45,10 @@ export default async function Home() {
     <div className="mb-10 flex flex-col gap-8">
       <Hero />
       <Categories />
-      <Brands />
+      {/* <Brands /> */}
       <NewProducts />
       <Reviews />
-      <Bonds />
+      {/* <Bonds /> */}
     </div>
   );
 }
