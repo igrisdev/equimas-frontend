@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center justify-center space-x-2 text-xs md:justify-start">
             <Mail size={18} />
-            <span>ventas@equimasequiposyrepuestos.comchange</span>
+            <span>ventas@equimasequiposyrepuestos.com</span>
           </div>
         </div>
       </div>
