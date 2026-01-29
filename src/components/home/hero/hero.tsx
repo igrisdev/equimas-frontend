@@ -12,7 +12,7 @@ export const Hero = async () => {
   const hero = await getHeroItems();
 
   return (
-    <section className="max-w-8xl mx-auto flex w-full flex-col justify-evenly gap-8 overflow-hidden px-4 py-10">
+    <section className="max-w-8xl mx-auto flex w-full flex-col justify-evenly gap-8 overflow-hidden px-4 pt-10">
       <Suspense fallback={<div></div>}>
         <CarouselHero hero={hero} />
       </Suspense>

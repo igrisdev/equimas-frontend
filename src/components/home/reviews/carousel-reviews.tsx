@@ -54,7 +54,7 @@ export const CarouselReviews = ({ reviews }: { reviews: Review[] }) => {
   return (
     <section className="overflow-hidden bg-transparent">
       <div
-        className="relative w-full overflow-hidden py-20"
+        className="relative w-full overflow-hidden pt-12 pb-20"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         ref={containerRef}
