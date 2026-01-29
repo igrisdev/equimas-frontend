@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { useSearchProducts } from "@/hooks/use-search-products";
 import { RefreshCw, Search } from "lucide-react";
 import { createUrl } from "@/lib/utils";
@@ -23,7 +23,7 @@ const RenderProductItem = ({
         href={`/product/${product.handle}`}
         className="flex items-center gap-4"
       >
-        <div className="size-25 overflow-hidden rounded-lg bg-black">
+        <div className="size-25 min-w-25 overflow-hidden rounded-lg bg-black">
           <img
             src={product?.featuredImage?.url ?? "/not-found.png"}
             alt="Logo"

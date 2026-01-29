@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import Logo from "@/assets/logo/image.png";
+import Logo from "@/assets/logo/image.webp";
 import { ChevronDown } from "lucide-react";
 
 import { IDropDownMenu } from "@/types/navbar";
@@ -26,7 +26,7 @@ export const AnimationButtonAppears = ({
 }) => {
   return (
     <button
-      className="group relative cursor-pointer overflow-hidden rounded-full"
+      className="group relative hidden cursor-pointer overflow-hidden rounded-full md:block"
       onClick={handleClick}
     >
       <div className="flex flex-nowrap items-center gap-2 px-5 py-3">
@@ -52,7 +52,7 @@ export const MenuDesktop = ({
   return (
     <div
       data-open-menu={isOpenMenu}
-      className={`absolute top-[88px] -z-10 w-full rounded-b-4xl border-b border-blue-400 bg-black p-4 transition-all ${isOpenMenu ? "translate-y-0" : "-translate-y-full"}`}
+      className={`absolute top-[88px] -z-10 hidden w-full rounded-b-4xl border-b border-blue-400 bg-black p-4 transition-all md:block ${isOpenMenu ? "translate-y-0" : "-translate-y-full"}`}
     >
       <section className="grid w-full flex-1 gap-4">
         {menu.map((route) => {
@@ -169,7 +169,7 @@ export const Navbar = ({ menuResponse }: { menuResponse: Menu[] }) => {
       {/* Desktop */}
       <nav
         ref={navRef} // Asignamos la ref aquí
-        className="max-w-8xl sticky top-0 z-30 mx-auto hidden h-[90px] w-full border-b border-transparent transition-all duration-300 ease-in-out hover:border-blue-400 sm:block"
+        className="max-w-8xl sticky top-0 z-30 mx-auto block h-[90px] w-full border-b border-transparent transition-all duration-300 ease-in-out hover:border-blue-400"
         data-open-menu={isOpenMenu}
       >
         <div className="relative flex items-center justify-between bg-black py-2">
@@ -179,6 +179,8 @@ export const Navbar = ({ menuResponse }: { menuResponse: Menu[] }) => {
               <p className="text-lg font-semibold">Menú</p>
               <IconChevronCompactDown stroke={4} />
             </AnimationButtonAppears>
+
+            <MobileMenu routes={menu} />
           </section>
 
           {/* Logo */}
@@ -193,7 +195,7 @@ export const Navbar = ({ menuResponse }: { menuResponse: Menu[] }) => {
           </section>
 
           {/* Buscador, Carrito */}
-          <section className="flex flex-nowrap items-center gap-10 pr-8">
+          <section className="flex flex-nowrap items-center gap-6 pr-5 md:gap-10 md:pr-8">
             <SearchModal />
 
             <CartModal />
@@ -207,34 +209,6 @@ export const Navbar = ({ menuResponse }: { menuResponse: Menu[] }) => {
           />
         </div>
       </nav>
-
-      {/* Mobile (Comentado en tu original, lo mantengo igual o descoméntalo si lo usas) */}
-      {/* <nav className="fixed top-0 left-1/2 z-50 flex w-full -translate-x-1/2 transform flex-col gap-4 border-b border-gray-400 bg-white p-2 py-2 sm:hidden">
-        <section className="flex items-center justify-between">
-          <div>
-            <MobileMenu routes={menu} />
-          </div>
-
-          <Link href="/">
-            <img
-              src={Logo.src ?? "/not-found.png"}
-              alt="logo"
-              className="h-[40px] w-[70px]"
-            />
-          </Link>
-
-          <div className="h-[44px] w-[48px]">
-            <CartModal />
-          </div>
-        </section>
-
-        <section className="px-2">
-           <Suspense fallback={<div className="h-[42px] w-full"></div>}>
-              <SearchProducts />
-           </Suspense>
-        </section>
-      </nav>
-      */}
     </>
   );
 };

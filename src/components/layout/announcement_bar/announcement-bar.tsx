@@ -34,7 +34,7 @@ export const AnnouncementBar = () => {
   ];
 
   return (
-    <section className="max-w-8xl relative z-50 mx-auto flex w-full bg-black px-4 md:px-8 py-4 text-white">
+    <section className="max-w-8xl relative z-30 mx-auto flex w-full bg-black px-4 py-4 text-white md:z-50 md:px-8">
       <div className="hidden gap-x-4 lg:flex">
         <IconBrandWhatsapp stroke={2} />
         <IconBrandFacebook stroke={2} />

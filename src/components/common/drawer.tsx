@@ -27,7 +27,7 @@ export const Drawer = ({
 
       <aside
         ref={ref}
-        className={`animate-once animate-duration-300 animate-ease-in-out relative flex h-full flex-col bg-blue-50 p-4 ${animationDirection} ${width}`}
+        className={`animate-once animate-duration-300 animate-ease-in-out relative flex h-full flex-col bg-white p-4 text-black ${animationDirection} ${width}`}
       >
         {children}
       </aside>

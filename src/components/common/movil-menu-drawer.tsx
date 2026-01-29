@@ -52,20 +52,44 @@ export const MobileMenu = ({ routes }: { routes: Menu[] }) => {
     <>
       <button
         onClick={toggleDrawer}
-        className="cursor-pointer p-2 sm:hidden"
+        className="cursor-pointer p-2 md:hidden"
         aria-label="Abrir menú"
       >
         <MenuIcon />
       </button>
 
-      <Drawer open={open} onClose={() => setOpen(false)} ref={drawerRef}>
-        <div className="mb-2 flex justify-end">
-          <button onClick={() => setOpen(false)} aria-label="Cerrar menú">
-            <X />
-          </button>
-        </div>
+      <Drawer
+        open={open}
+        onClose={() => setOpen(false)}
+        ref={drawerRef}
+        width="w-[400px]"
+      >
+        <section className="flex justify-between py-4">
+          <div>
+            <h3 className="text-xl font-semibold">Menú</h3>
+          </div>
+
+          <div className="flex justify-end pr-2 pb-2">
+            <button
+              className="cursor-pointer"
+              onClick={() => setOpen(false)}
+              aria-label="Cerrar menú"
+            >
+              <X />
+            </button>
+          </div>
+        </section>
 
         <nav className="flex flex-col">
+          <Link
+            href="/"
+            className="flex items-center gap-3 rounded-md px-3 py-3 text-sm hover:bg-blue-50"
+            onClick={() => setOpen(false)}
+          >
+            <span className="text-blue-700">{iconFor("Inicio")}</span>
+            <span>Inicio</span>
+          </Link>
+
           {routes.map((route) => {
             const hasChildren =
               Array.isArray(route.children) && route.children.length > 0;
@@ -116,10 +140,10 @@ export const MobileMenu = ({ routes }: { routes: Menu[] }) => {
                 <div
                   id={`section-${route.title}`}
                   className={`overflow-hidden transition-[max-height] duration-300 ease-in-out ${
-                    isOpen ? "max-h-96" : "max-h-0"
+                    isOpen ? "max-h-[80vh]" : "max-h-0"
                   }`}
                 >
-                  <ul className="ml-9 max-h-72 overflow-auto border-l border-blue-100 pl-3">
+                  <ul className="ml-9 max-h-[80vh] overflow-auto border-l border-blue-100 pl-3">
                     {route.children!.map((item) => {
                       const hasChildren =
                         Array.isArray(item.children) &&

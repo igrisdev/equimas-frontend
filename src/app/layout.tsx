@@ -144,7 +144,7 @@ export default async function RootLayout({
             <section className="relative">
               <Navbar menuResponse={menuResponse} />
 
-              <main className="max-w-8xl relative mx-auto mt-[117px] h-full min-h-[calc(100vh-117px)] w-full sm:mt-[100px] sm:h-full sm:min-h-[calc(100vh-100px)]">
+              <main className="max-w-8xl relative mx-auto h-full min-h-[calc(100vh-100px)] w-full">
                 {children}
               </main>
             </section>
