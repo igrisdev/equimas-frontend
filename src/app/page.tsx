@@ -6,6 +6,7 @@ import { NewProducts } from "@/components/home/new-products/new-products";
 import { Categories } from "@/components/home/categories";
 import { Brands } from "@/components/home/brands/brands";
 import { Reviews } from "@/components/home/reviews/reviews";
+import { Info } from "@/components/home/info";
 
 export const metadata: Metadata = {
   title:
@@ -44,10 +45,11 @@ export default async function Home() {
   return (
     <div className="mb-10 flex flex-col gap-8">
       <Hero />
+      <Reviews />
       <Brands />
       <Categories />
       <NewProducts />
-      <Reviews />
+      <Info />
       <Bonds />
     </div>
   );
