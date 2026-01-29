@@ -17,6 +17,7 @@ El proyecto presentaba un alto número de invocaciones de Netlify Functions (mil
 **Archivo:** `src/lib/shopify/index.ts`
 
 **Antes:**
+
 ```typescript
 export async function getPage(handle: string): Promise<Page> {
   const res = await shopifyFetch<ShopifyPageOperation>({
@@ -37,6 +38,7 @@ export async function getPages(): Promise<Page[]> {
 ```
 
 **Después:**
+
 ```typescript
 export async function getPage(handle: string): Promise<Page> {
   const res = await shopifyFetch<ShopifyPageOperation>({
@@ -67,6 +69,7 @@ export async function getPages(): Promise<Page[]> {
 **Archivo:** `src/lib/shopify/index.ts`
 
 **Antes:**
+
 ```typescript
 export async function getCart(
   cartId: string | undefined,
@@ -89,6 +92,7 @@ export async function getCart(
 ```
 
 **Después:**
+
 ```typescript
 export async function getCart(
   cartId: string | undefined,
@@ -119,6 +123,7 @@ export async function getCart(
 **Archivo:** `src/components/cart/modal.tsx`
 
 **Antes:**
+
 ```typescript
 export default function CartModal() {
   const { cart, updateCartItem } = useCart();
@@ -135,6 +140,7 @@ export default function CartModal() {
 ```
 
 **Después:**
+
 ```typescript
 export default function CartModal() {
   const { cart, updateCartItem } = useCart();
@@ -173,16 +179,19 @@ Las siguientes funciones **mantienen** `cache: "no-store"` porque son operacione
 ## Resultado Esperado
 
 ### Antes de las Optimizaciones
+
 - **78 pageviews**
 - **13 usuarios únicos**
 - **Miles de invocaciones** de Netlify Functions
 
 ### Después de las Optimizaciones
+
 - **78 pageviews**
 - **13 usuarios únicos**
 - **~100-200 invocaciones** (reducción del 90-95%)
 
 ### Desglose de Invocaciones Esperadas
+
 1. **Páginas estáticas** (`getPage`, `getPages`): ~10-20 invocaciones (solo en primera carga o revalidación)
 2. **Productos** (`getProduct`, `getProducts`): ~30-50 invocaciones (cacheadas con tags)
 3. **Carrito** (`getCart`): ~13 invocaciones (una por usuario único)
@@ -209,6 +218,7 @@ Para identificar endpoints con alto tráfico:
 El proyecto ya implementa persistencia del `cartId` en cookies:
 
 **Archivo:** `src/app/layout.tsx` (línea 95-97)
+
 ```typescript
 const cookieStore = await cookies();
 const cartId = cookieStore?.get("cartId")?.value;
@@ -216,6 +226,7 @@ const cart = getCart(cartId);
 ```
 
 **Archivo:** `src/components/cart/actions.ts` (línea 143-147)
+
 ```typescript
 export async function createCartAndSetCookie() {
   const cookieStore = await cookies();
@@ -252,6 +263,7 @@ Asegúrate de que los webhooks de Shopify estén configurados para revalidar el 
 **Archivo:** `src/lib/shopify/index.ts` (línea 521-558)
 
 Los webhooks configurados:
+
 - `collections/create`
 - `collections/delete`
 - `collections/update`
@@ -275,7 +287,7 @@ npm run dev
 2. Navegar por el sitio
 3. Verificar que las páginas estáticas no generen múltiples requests
 
-### 2. Verificar en Netlify
+### 2. Verificarequimas.com.co
 
 Después del deploy:
 
@@ -287,10 +299,11 @@ Después del deploy:
 
 ```bash
 # Verificar headers de respuesta
-curl -I https://jaketiendaelectronica.com/about-us
+curl -I https://equimas.com.co/about-us
 ```
 
 Buscar headers como:
+
 - `x-nextjs-cache: HIT` (caché funcionando)
 - `x-nextjs-cache: MISS` (primera carga)
 

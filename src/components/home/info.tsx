@@ -34,7 +34,7 @@ export const Info = () => {
                     viewport={{ once: true }}
                 >
                     <a
-                        href="https://wa.me/573018077982"
+                        href="https://wa.me/573218520566"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-3 bg-green-600 hover:bg-green-500 text-white font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-green-500/30"

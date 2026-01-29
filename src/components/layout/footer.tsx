@@ -67,11 +67,11 @@ export default function Footer() {
           </div>
           <div className="flex items-center justify-center space-x-2 md:justify-start">
             <Phone size={18} />
-            <span>3018077982</span>
+            <span>3218520566</span>
           </div>
           <div className="flex items-center justify-center space-x-2 text-xs md:justify-start">
             <Mail size={18} />
-            <span>jaketiendaelectronicapopayan@gmail.com</span>
+            <span>ventas@equimasequiposyrepuestos.comchange</span>
           </div>
         </div>
       </div>

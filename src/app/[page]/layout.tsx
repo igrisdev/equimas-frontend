@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://jaketiendaelectronica.com",
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://equimas.com.co",
   ),
   title: {
     default: "Jake Tienda Electrónica | Audio profesional en Colombia",

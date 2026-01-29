@@ -5,8 +5,8 @@ const STORE = {
   address: "Calle 6 #10-09, Centro, Popayán, Cauca",
   lat: 2.44158,
   lng: -76.60996,
-  url: "https://jaketiendaelectronica.com/about-us",
-  telephone: "+57 310 387 6150",
+  url: "https://equimas.com.co/about-us",
+  telephone: "+57 3218520566",
 };
 
 function jsonLdLocalBusiness() {

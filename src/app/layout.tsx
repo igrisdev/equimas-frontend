@@ -24,7 +24,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jaketiendaelectronica.com"),
+  metadataBase: new URL("https://equimas.com.co"),
   applicationName: "Jake Tienda Electrónica",
   title: {
     default:
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     title: "Jake Tienda Electrónica | Tecnología y Sonido Profesional",
     description:
       "Controladoras, Parlantes, Cabinas y más. Compra con crédito y recibe en toda Colombia.",
-    url: "https://jaketiendaelectronica.com",
+    url: "https://equimas.com.co",
     siteName: "Jake Tienda Electrónica",
     images: [
       {
@@ -112,8 +112,8 @@ export default async function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Jake Tienda Electrónica",
-              url: "https://jaketiendaelectronica.com",
-              logo: "https://jaketiendaelectronica.com/favicon.svg",
+              url: "https://equimas.com.co",
+              logo: "https://equimas.com.co/favicon.svg",
             }),
           }}
         />
@@ -124,11 +124,11 @@ export default async function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "Jake Tienda Electrónica",
-              url: "https://jaketiendaelectronica.com/",
+              url: "https://equimas.com.co/",
               potentialAction: {
                 "@type": "SearchAction",
                 target:
-                  "https://jaketiendaelectronica.com/products?q={search_term_string}",
+                  "https://equimas.com.co/products?q={search_term_string}",
                 "query-input": "required name=search_term_string",
               },
             }),

@@ -8,7 +8,7 @@ import { Product } from "@/lib/shopify/types";
 import Price from "../price";
 import { AddToCart } from "../cart/add-to-cart";
 
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WA_NUMBER || "573103876150";
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WA_NUMBER || "573218520566";
 const BANCO_BOGOTA_URL =
   process.env.NEXT_PUBLIC_BANCO_BOGOTA_URL ||
   "https://slm.bancodebogota.com/lwjqqbfe";
@@ -40,7 +40,7 @@ export const ProductInfo = ({ product }: { product: Product }) => {
       });
       const hour = parseInt(formatter.format(now), 10);
 
-      
+
       const isOpen = hour >= 8 && hour < 20;
       setIsBancoEnabled(isOpen);
     };

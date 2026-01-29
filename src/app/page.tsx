@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Jake Tienda Electrónica | Sonido Profesional en Colombia",
     description:
       "Explora nuestra tienda de parlantes, consolas, controladoras DJ y bajos. Créditos fáciles y envíos rápidos.",
-    url: "https://jaketiendaelectronica.com",
+    url: "https://equimas.com.co",
     siteName: "Jake Tienda Electrónica",
     images: [
       {
