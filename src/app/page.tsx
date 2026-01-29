@@ -43,8 +43,8 @@ export default async function Home() {
   return (
     <div className="mb-10 flex flex-col gap-8">
       <Hero />
-      <Brands />
       <Categories />
+      <Brands />
       <NewProducts />
       <Bonds />
     </div>

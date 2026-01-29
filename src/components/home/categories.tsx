@@ -10,12 +10,8 @@ export const Categories = async () => {
   if (categories.length < 1) return null;
 
   return (
-    <section className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4">
-      <div>
-        <h2 className="py-10 text-center text-3xl font-bold">Categorías</h2>
-      </div>
-
-      <div className="grid grid-cols-2 gap-4 py-4 md:grid-cols-3 lg:grid-cols-5">
+    <section className="max-w-8xl mx-auto flex w-full flex-col gap-4 md:px-4">
+      <div className="grid grid-cols-2 gap-8 rounded-4xl bg-white px-6 py-10 sm:px-8 sm:py-15 md:px-20 md:py-40 lg:grid-cols-3 xl:grid-cols-4">
         {categories.slice(0, 20).map((category) => (
           <CardCategory key={category.id} category={category} />
         ))}
@@ -30,25 +26,22 @@ const CardCategory = ({ category }: { category: ICategoryCart }) => {
       href={
         category.path + "?title=Categoría" + "&collection=" + category.title
       }
-      className="overflow-hidden border border-gray-100 p-2 transition-all duration-100 ease-in-out hover:border-blue-300 hover:shadow-xs"
+      className="group overflow-hidden rounded-2xl border border-black bg-black"
     >
-      <article className="flex flex-col gap-4 overflow-hidden rounded-sm">
-        <div className="aspect-square">
-          {/* <Image
-            src={category?.image ?? "/not-found.png"}
-            alt={category.altText ?? category.title}
-            className="h-full w-full object-cover"
-            width={400}
-            height={400}
-          /> */}
+      <article className="flex flex-col overflow-hidden rounded-sm">
+        <div className="aspect-square overflow-hidden">
           <img
             src={category?.image ?? "/not-found.png"}
             alt={category.altText ?? category.title}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:scale-105"
           />
         </div>
 
-        <h3 className="text-center text-lg font-semibold">{category.title}</h3>
+        <div className="p-4 md:p-6">
+          <h3 className="text-sm font-semibold underline-offset-3 group-hover:underline sm:text-lg">
+            {category.title}
+          </h3>
+        </div>
       </article>
     </Link>
   );
