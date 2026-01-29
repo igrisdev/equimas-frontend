@@ -26,10 +26,7 @@ export const CarouselHero = ({ hero }: { hero: any[] }) => {
       >
         {hero.map((p) => (
           <SwiperSlide key={p.id}>
-            <Link
-              href={`/product/${p.handle}`}
-              className="h-full w-full bg-red-400"
-            >
+            <Link href={`/product/${p.handle}`} className="h-full w-full">
               <img
                 src={p?.image?.image?.url ?? "not-found.png"}
                 alt={p.id}
