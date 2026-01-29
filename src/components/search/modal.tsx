@@ -48,7 +48,7 @@ export default function SearchModal() {
 
               <div className="flex h-full w-full overflow-hidden pt-6 pb-4">
                 <Suspense fallback={null}>
-                  <SearchProducts />
+                  <SearchProducts onClose={closeCart} />
                 </Suspense>
               </div>
             </Dialog.Panel>

@@ -10,9 +10,11 @@ import { useRouter } from "next/navigation";
 const RenderProductItem = ({
   product,
   pathname,
+  onClose,
 }: {
   product: any;
   pathname: string;
+  onClose: () => void;
 }) => {
   const isActive = pathname?.includes(product.handle);
   const itemClass = isActive ? "bg-green-300" : "hover:bg-blue-100";
@@ -20,6 +22,7 @@ const RenderProductItem = ({
   return (
     <li key={product.id} className={itemClass}>
       <Link
+        onClick={() => onClose()}
         href={`/product/${product.handle}`}
         className="flex items-center gap-4"
       >
@@ -45,14 +48,15 @@ const RenderDropdown = ({
   searchAttempted,
   loading,
   pathname,
+  onClose,
 }: {
   isView: boolean;
   productsSearch: any[];
   searchAttempted: boolean;
   loading: boolean;
   pathname: string;
+  onClose: () => void;
 }) => {
-  if (!isView) return null;
   return (
     <div className="flex flex-col gap-4">
       <div>
@@ -62,26 +66,27 @@ const RenderDropdown = ({
 
       <ul className="flex h-[73vh] w-full flex-col gap-2 overflow-y-auto text-black">
         {loading ? (
-          <div className="text-center">Buscando...</div>
+          <div className="text-center">Buscando ...</div>
         ) : productsSearch.length > 0 ? (
           productsSearch.map((product: any) => (
             <RenderProductItem
               key={product.id}
               product={product}
               pathname={pathname}
+              onClose={onClose}
             />
           ))
         ) : searchAttempted ? (
           <div className="text-center">No se encontraron resultados</div>
         ) : (
-          <div className="text-center">Buscando...</div>
+          isView && <div className="text-center">Buscando ...</div>
         )}
       </ul>
     </div>
   );
 };
 
-export const SearchProducts = () => {
+export const SearchProducts = ({ onClose }: { onClose: () => void }) => {
   const router = useRouter();
 
   const {
@@ -109,6 +114,7 @@ export const SearchProducts = () => {
     const newParams = new URLSearchParams();
     if (q) newParams.set("q", q);
 
+    onClose();
     router.push(createUrl("/search", newParams));
   }
 
@@ -139,6 +145,7 @@ export const SearchProducts = () => {
         loading={loading}
         isView={isView}
         pathname={pathname}
+        onClose={onClose}
       />
     </section>
   );

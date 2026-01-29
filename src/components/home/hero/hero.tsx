@@ -27,7 +27,7 @@ export const Hero = async () => {
   );
 };
 
-function InfoHero() {
+const InfoHero = () => {
   return (
     <div className="order-2 flex flex-col justify-center gap-6 lg:order-1">
       <span className="hidden w-fit rounded-full bg-blue-600/10 px-3 py-1 text-xs font-medium text-blue-700 lg:block">
@@ -83,4 +83,4 @@ function InfoHero() {
       </section>
     </div>
   );
-}
+};
