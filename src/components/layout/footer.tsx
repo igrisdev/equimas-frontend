@@ -20,26 +20,27 @@ const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export default function Footer() {
   return (
-    <footer className="overflow-hidden bg-gradient-to-b from-blue-800 via-blue-800 to-blue-700 px-6 py-12 text-white lg:px-20">
+    <footer className="overflow-hidden bg-background px-6 py-12 text-white lg:px-20">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 md:grid-cols-4 md:items-start">
         {/* Logo y descripción */}
         <div className="flex flex-col items-center space-y-3 md:items-start">
-          {/* <Image
-            src={logoImg ?? "/not-found.png"}
-            alt="Jake Tienda Electrónica"
-            width={160}
-            height={60}
-            priority
-          /> */}
           <img
-            src={logoImg.src ?? "/not-found.png"}
-            alt="Jake Tienda Electrónica"
-            className="h-[60px] w-[160px]"
+            src="/image.png"
+            alt="Equimas Logo"
+            className="h-[60px] w-auto object-contain"
           />
           <p className="text-center text-sm md:text-left">
-            Tu tienda de tecnología y sonido en Popayán. Productos de calidad,
-            asesoría profesional y crédito accesible.
+            Tu tienda de productos de acero, calidad comprobada.
           </p>
+        </div>
+
+        {/* Links */}
+        <div className="flex flex-col items-center space-y-2 md:items-start">
+          <h3 className="text-lg font-semibold">Enlaces</h3>
+          <nav className="flex flex-col space-y-1 text-center md:text-left">
+            <a href="/about-us" className="text-sm hover:underline">Acerca de nosotros</a>
+            <a href="/credit" className="text-sm hover:underline">Credito</a>
+          </nav>
         </div>
 
         {/* Redes sociales */}
@@ -47,47 +48,26 @@ export default function Footer() {
           <h3 className="text-lg font-semibold">Síguenos</h3>
           <div className="flex space-x-5">
             <a
-              href="https://www.facebook.com/jaketiendaelectronicapop?mibextid=wwXIfr&rdid=k5Z36exGZj1uEGRO&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16nZduLArp%2F%3Fmibextid%3DwwXIfr#"
+              href="https://www.facebook.com/profile.php?id=61577617222740"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full bg-blue-800 p-2 transition hover:bg-blue-600"
             >
               <Facebook className="h-5 w-5" />
             </a>
-            <a
-              href="https://www.instagram.com/jaketiendaelectronica?igsh=MWZhdjR5ajBnd3Vu&utm_source=qr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-blue-800 p-2 transition hover:bg-pink-500"
-            >
-              <Instagram className="h-5 w-5" />
-            </a>
-            <a
-              href="https://www.tiktok.com/@jaketiendaelectronica?_t=ZS-8xixwJENN3q&_r=1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-blue-800 p-2 transition hover:bg-blue-400"
-            >
-              <TikTokIcon className="h-5 w-5" />
-            </a>
           </div>
         </div>
 
-        {/* Ubicación */}
+        {/* Ubicación y Contacto */}
         <div className="flex flex-col space-y-2 text-center md:text-left">
-          <h3 className="text-lg font-semibold text-white">Ubicación</h3>
+          <h3 className="text-lg font-semibold text-white">Ubicación y Contacto</h3>
           <div className="flex items-center justify-center space-x-2 md:justify-start">
             <MapPin size={18} />
-            <span>Calle 6 #10-09, Centro de Popayán</span>
+            <span>Cra 6 # 0N - 02. Popayan, Cauca.</span>
           </div>
-        </div>
-
-        {/* Contacto */}
-        <div className="flex flex-col space-y-2 text-center md:text-left">
-          <h3 className="text-lg font-semibold text-white">Contáctanos</h3>
           <div className="flex items-center justify-center space-x-2 md:justify-start">
             <Phone size={18} />
-            <span>+57 310 387 6150</span>
+            <span>3018077982</span>
           </div>
           <div className="flex items-center justify-center space-x-2 text-xs md:justify-start">
             <Mail size={18} />
@@ -98,7 +78,7 @@ export default function Footer() {
 
       {/* Línea inferior */}
       <div className="mt-10 border-t border-white pt-6 text-center text-sm">
-        © {new Date().getFullYear()} Jake Tienda Electrónica. Todos los
+        © {new Date().getFullYear()} Equimas. Todos los
         derechos reservados.
       </div>
     </footer>
