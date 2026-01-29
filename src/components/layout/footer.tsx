@@ -39,7 +39,7 @@ export default function Footer() {
           <h3 className="text-lg font-semibold">Enlaces</h3>
           <nav className="flex flex-col space-y-1 text-center md:text-left">
             <a href="/about-us" className="text-sm hover:underline">Acerca de nosotros</a>
-            <a href="/credit" className="text-sm hover:underline">Credito</a>
+            <a href="/credit" className="text-sm hover:underline">Opciones de Crédito</a>
           </nav>
         </div>
 
