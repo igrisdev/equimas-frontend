@@ -39,5 +39,17 @@ const MOCK_REVIEWS = [
 ];
 
 export const Reviews = () => {
-  return <CarouselReviews reviews={MOCK_REVIEWS} />;
+  return (
+    <div className="py-8 md:py-12">
+      <div className="mb-8 px-4 text-center">
+        <h2 className="text-3xl font-bold text-neutral-900 dark:text-white md:text-4xl">
+          Aliados del Fuego
+        </h2>
+        <p className="mt-2 text-lg text-neutral-600 dark:text-neutral-400">
+          Clientes que confían en la calidad de EQUIMAS
+        </p>
+      </div>
+      <CarouselReviews reviews={MOCK_REVIEWS} />
+    </div>
+  );
 };

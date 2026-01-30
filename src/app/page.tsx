@@ -6,6 +6,7 @@ import { NewProducts } from "@/components/home/new-products/new-products";
 import { Categories } from "@/components/home/categories";
 import { Brands } from "@/components/home/brands/brands";
 import { Reviews } from "@/components/home/reviews/reviews";
+import { Info } from "@/components/home/info";
 
 export const metadata: Metadata = {
   title:
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     title: "Jake Tienda Electrónica | Sonido Profesional en Colombia",
     description:
       "Explora nuestra tienda de parlantes, consolas, controladoras DJ y bajos. Créditos fáciles y envíos rápidos.",
-    url: "https://jaketiendaelectronica.com",
+    url: "https://equimas.com.co",
     siteName: "Jake Tienda Electrónica",
     images: [
       {
