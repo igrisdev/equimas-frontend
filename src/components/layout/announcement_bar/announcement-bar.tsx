@@ -30,7 +30,7 @@ export const AnnouncementBar = () => {
   const announcements = [
     "Envíos a todo Colombia 🇨🇴",
     "Pago contra entrega 💵",
-    "Créditos con Brisa y Banco de Bogotá 🏦",
+    "Créditos con Brilla y Banco de Bogotá 🏦",
   ];
 
   return (
