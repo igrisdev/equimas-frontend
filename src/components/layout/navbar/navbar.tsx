@@ -16,24 +16,40 @@ import { MAIN_MENU } from "@/lib/constants";
 import { IconChevronCompactDown } from "@tabler/icons-react";
 import { Menu } from "@/lib/shopify/types";
 import SearchModal from "@/components/search/modal";
+import clsx from "clsx";
+
+interface AnimationButtonAppearsProps {
+  children: React.ReactNode;
+  firstColor?: string;
+  secondColor?: string;
+  handleClick?: () => void;
+  hidden?: boolean;
+}
 
 export const AnimationButtonAppears = ({
   children,
+  firstColor = "bg-transparent",
+  secondColor = "bg-white",
   handleClick,
-}: {
-  children: React.ReactNode;
-  handleClick?: () => void;
-}) => {
+  hidden = true,
+}: AnimationButtonAppearsProps) => {
   return (
     <button
-      className="group relative hidden cursor-pointer overflow-hidden rounded-full md:block"
+      className={clsx(
+        "group relative w-full cursor-pointer overflow-hidden rounded-full",
+        hidden && "hidden md:block",
+      )}
       onClick={handleClick}
     >
-      <div className="flex flex-nowrap items-center gap-2 px-5 py-3">
+      <div
+        className={`flex flex-nowrap items-center justify-center gap-2 px-5 py-3 ${firstColor}`}
+      >
         {children}
       </div>
 
-      <div className="absolute inset-0 flex translate-y-full flex-nowrap items-center gap-2 rounded-full bg-white px-5 py-3 text-black transition group-hover:z-50 group-hover:translate-y-0">
+      <div
+        className={`absolute inset-0 flex translate-y-full flex-nowrap items-center justify-center gap-2 rounded-full px-5 py-3 text-center text-black transition group-hover:z-50 group-hover:translate-y-0 ${secondColor}`}
+      >
         {children}
       </div>
     </button>

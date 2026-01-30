@@ -54,7 +54,7 @@ export const CarouselReviews = ({ reviews }: { reviews: Review[] }) => {
   return (
     <section className="overflow-hidden bg-transparent">
       <div
-        className="relative w-full overflow-hidden py-10"
+        className="relative w-full overflow-hidden pt-12 pb-20"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         ref={containerRef}
@@ -74,10 +74,11 @@ export const CarouselReviews = ({ reviews }: { reviews: Review[] }) => {
                   <Star
                     key={i}
                     size={16}
-                    className={`${i < review.rating
+                    className={`${
+                      i < review.rating
                         ? "fill-yellow-400 text-yellow-400"
                         : "fill-neutral-200 text-neutral-200 dark:fill-neutral-800 dark:text-neutral-800"
-                      }`}
+                    }`}
                   />
                 ))}
               </div>

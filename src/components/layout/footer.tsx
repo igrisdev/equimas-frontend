@@ -21,7 +21,7 @@ const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
 export default function Footer() {
   return (
     <footer className="overflow-hidden bg-background px-6 py-12 text-white lg:px-20">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 md:grid-cols-4 md:items-start">
+      <div className="mx-auto grid max-w-8xl grid-cols-1 gap-4 md:grid-cols-4 md:items-start">
         {/* Logo y descripción */}
         <div className="flex flex-col items-center space-y-3 md:items-start">
           <img

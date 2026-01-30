@@ -12,7 +12,7 @@ export const Hero = async () => {
   const hero = await getHeroItems();
 
   return (
-    <section className="max-w-8xl mx-auto flex h-[calc(100vh-140px))] w-full flex-col justify-evenly gap-8 overflow-hidden px-4 pt-4">
+    <section className="max-w-8xl mx-auto flex w-full flex-col justify-evenly gap-8 overflow-hidden px-4 pt-10">
       <Suspense fallback={<div></div>}>
         <CarouselHero hero={hero} />
       </Suspense>
@@ -43,14 +43,14 @@ const InfoHero = () => {
           <div className="flex flex-wrap gap-3 text-sm sm:text-base">
             <Link
               href="/search"
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-white shadow-sm transition hover:bg-blue-700 sm:w-max"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2 font-medium text-white shadow-sm transition hover:bg-blue-700 sm:w-max"
             >
               <ShoppingBag size={18} />
               Explorar productos
             </Link>
             <Link
               href="/credit"
-              className="flex w-full items-center justify-center gap-2 rounded-xl border border-green-500 bg-green-500 px-4 py-2 text-black hover:bg-green-400 sm:w-max"
+              className="flex w-full items-center justify-center gap-2 rounded-xl border border-green-500 bg-green-500 px-4 py-2 font-medium text-black hover:bg-green-400 sm:w-max"
             >
               <IconBrandWhatsapp />
               Contáctenos
