@@ -10,30 +10,32 @@ import { Info } from "@/components/home/info";
 
 export const metadata: Metadata = {
   title:
-    "Jake Tienda Electrónica | Controladoras, Consolas, Parlantes, Subwoofers y Tecnología en Colombia",
+    "Equimas | Equipos de Acero: Asadores, Hornos y Estufas a Medida",
   description:
-    "Compra parlantes, bajos, controladoras DJ, consolas y audio profesional con financiación y envío nacional. Tienda de sonido en Popayán.",
+    "Venta de equipos de acero de alta calidad: asadores, hornos, estufas de mesa, ollas, calderos y módulos a medida. ¡Equipa tu cocina con expertos!",
   keywords: [
-    "tienda de sonido",
-    "parlantes Colombia",
-    "controladoras DJ",
-    "subwoofers Popayán",
-    "JBL a crédito",
-    "tienda de tecnología audio",
-    "Jake tienda electrónica",
+    "Equimas",
+    "equipos de acero",
+    "asadores de acero",
+    "módulos a medida",
+    "hornos de acero",
+    "ollas y calderos",
+    "estufas de mesa",
+    "planchas para asar",
+    "acero inoxidable Colombia",
   ],
   openGraph: {
-    title: "Jake Tienda Electrónica | Sonido Profesional en Colombia",
+    title: "Equimas | Equipos de Acero Profesional",
     description:
-      "Explora nuestra tienda de parlantes, consolas, controladoras DJ y bajos. Créditos fáciles y envíos rápidos.",
+      "Descubre nuestra línea de asadores, hornos y módulos a medida en acero. Calidad y durabilidad para tu cocina.",
     url: "https://equimas.com.co",
-    siteName: "Jake Tienda Electrónica",
+    siteName: "Equimas",
     images: [
       {
-        url: "/favicon.svg",
+        url: "/image.webp",
         width: 1200,
         height: 630,
-        alt: "Jake Tienda Electrónica",
+        alt: "Equimas - Equipos de Acero",
       },
     ],
     locale: "es_CO",
@@ -50,6 +52,7 @@ export default async function Home() {
       {/* <Brands /> */}
       <NewProducts />
       {/* <Bonds /> */}
+      <Info />
     </div>
   );
 }

@@ -25,29 +25,27 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://equimas.com.co"),
-  applicationName: "Jake Tienda Electrónica",
+  applicationName: "Equimas",
   title: {
     default:
-      "Jake Tienda Electrónica | Audio Profesional y Tecnología en Colombia",
-    template: "%s | Jake Tienda Electrónica",
+      "Equimas | Equipos de Acero e Inoxidables",
+    template: "%s | Equimas",
   },
   description:
-    "Compra parlantes, controladoras DJ, consolas, subwoofers y tecnología de sonido profesional. Financiación disponible y envío en Colombia.",
+    "Especialistas en equipos de acero: asadores, módulos a medida, hornos, ollas y estufas industriales. Calidad garantizada en toda Colombia.",
   keywords: [
-    "parlantes profesionales",
-    "sonido DJ",
-    "financiación de audio",
-    "envío a Colombia",
-    "parlantes a crédito",
-    "controladoras DJ",
-    "subwoofers",
-    "controladoras DJ a crédito",
-    "tienda de sonido Popayán",
-    "tienda de tecnología audio",
-    "audio profesional Colombia",
-    "tecnología de sonido",
-    "financiación de audio",
-    "parlantes JBL",
+    "Equimas",
+    "equipos de acero",
+    "acero inoxidable",
+    "asadores profesionales",
+    "módulos a medida",
+    "hornos de acero",
+    "ollas y calderos",
+    "estufas de mesa",
+    "perritos y hamburguesas",
+    "planchas para asar",
+    "cocinas industriales",
+    "mobiliario de acero",
   ],
   referrer: "origin-when-cross-origin",
   robots: {
@@ -65,17 +63,17 @@ export const metadata: Metadata = {
     shortcut: "/favicon.svg",
   },
   openGraph: {
-    title: "Jake Tienda Electrónica | Tecnología y Sonido Profesional",
+    title: "Equimas | Equipos de Acero e Inoxidables",
     description:
-      "Controladoras, Parlantes, Cabinas y más. Compra con crédito y recibe en toda Colombia.",
+      "Asadores, Hornos, Módulos a medida y más. Calidad superior en acero para tu negocio u hogar.",
     url: "https://equimas.com.co",
-    siteName: "Jake Tienda Electrónica",
+    siteName: "Equimas",
     images: [
       {
         url: "/not-found.png",
         width: 1200,
         height: 630,
-        alt: "Jake Tienda Electrónica",
+        alt: "Equimas - Equipos de Acero",
       },
     ],
     locale: "es_CO",
@@ -83,9 +81,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jake Tienda Electrónica | Tecnología y Sonido Profesional",
+    title: "Equimas | Equipos de Acero e Inoxidables",
     description:
-      "Controladoras, Parlantes, Cabinas y más. Compra con crédito y recibe en toda Colombia.",
+      "Asadores, Hornos, Módulos a medida y más. Calidad superior en acero para tu negocio u hogar.",
     images: ["/not-found.png"],
   },
 };
@@ -111,7 +109,7 @@ export default async function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "Jake Tienda Electrónica",
+              name: "Equimas",
               url: "https://equimas.com.co",
               logo: "https://equimas.com.co/favicon.svg",
             }),
@@ -123,7 +121,7 @@ export default async function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "Jake Tienda Electrónica",
+              name: "Equimas",
               url: "https://equimas.com.co/",
               potentialAction: {
                 "@type": "SearchAction",
